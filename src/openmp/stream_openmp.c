@@ -159,6 +159,34 @@ int main(int argc, char *argv[])
 	a = (STREAM_TYPE *) malloc(sizeof(STREAM_TYPE) * stream_array_size+OFFSET);
 	b = (STREAM_TYPE *) malloc(sizeof(STREAM_TYPE) * stream_array_size+OFFSET);
 	c = (STREAM_TYPE *) malloc(sizeof(STREAM_TYPE) * stream_array_size+OFFSET);
+	
+//===========================================================================================================
+	printf("===========================================================================================================\n");
+	printf("MEMORY ALLOCATION CHECK\n\n");
+
+	if(a - stream_array_size == b){
+		printf("Array 'a' and array 'b' are allocated contiguously.\n");
+	}
+	else{
+		printf("Array 'a' and array 'b' are NOT allocated contiguously.\n");
+	}
+	printf("Address of 'a': %p\n", a);
+	printf("Address of 'b': %p\n", b);
+	printf("Address after subtracting stream_array_size: %p\n", a-(stream_array_size+OFFSET));
+	printf("Array 'a' and array 'b' has an offset of %d bytes.\n\n", a-(stream_array_size+OFFSET)-b);
+
+	if(b - stream_array_size == c){
+		printf("Array b and array c are allocated contiguously.\n");
+	}
+	else{
+		printf("Array b and array c are NOT allocated contiguously.\n");
+	}
+	printf("Address of 'b': %p\n", b);
+        printf("Address of 'c': %p\n", c);
+        printf("Address after subtracting stream_array_size: %p\n", b-(stream_array_size+OFFSET));
+        printf("Array 'b' and array 'c' has an offset of %d bytes.\n\n", b-(stream_array_size+OFFSET)-c);
+	printf("===========================================================================================================\n");
+//===========================================================================================================
 
 
 	IDX1 = (ssize_t *) malloc(sizeof(ssize_t) * stream_array_size+OFFSET);
